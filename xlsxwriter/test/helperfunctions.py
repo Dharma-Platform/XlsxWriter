@@ -222,3 +222,11 @@ def _compare_xlsx_files(got_file, exp_file, ignore_files, ignore_elements):
 
     # If we got here the files are the same.
     return 'Ok', 'Ok'
+
+
+def compare_xlsx_wrapper(file1, file2):
+    ignore_files = []
+    ignore_elements = {}
+
+    got, exp = _compare_xlsx_files(file1, file2, ignore_files, ignore_elements)
+    return got == exp
